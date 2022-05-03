@@ -31,7 +31,17 @@ Now I will create a function that take the list of list with dateTime values on 
  }
 
  */
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+DateTime timeOfDayToDateTime(TimeOfDay? timeOfDay){
+  //Getting the actual date
+  final DateTime now =  DateTime.now(); 
+  //Returning a dateTime value
+  return DateTime(now.year, now.month, now.day, timeOfDay!.hour, timeOfDay.minute);
+}
+
+String dateTimeToString(DateTime dateTime) => DateFormat('hh:mm a').format(dateTime);
 
 List<List<String>> timeWrapper(DateTime time){
   //Creating calculated variables
@@ -46,7 +56,7 @@ List<List<String>> timeWrapper(DateTime time){
   List<String> ninetySleepCycles = [ninetyCalcTimeString];
   List<String> hundredTenSleepCycles = [hundredTenCalcTimeString];
 
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 5; i++) {
     //Updating calcTimes
     ninetyCalcTime = ninetyCalcTime.add(const Duration(hours: 1, minutes: 30));
     hundredTenCalcTime = hundredTenCalcTime.add(const Duration(hours: 1, minutes: 50));
